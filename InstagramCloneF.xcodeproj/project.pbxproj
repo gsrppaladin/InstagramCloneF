@@ -15,6 +15,7 @@
 		FEB6E97A1F6F19E900B3ED74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB6E9791F6F19E900B3ED74 /* Assets.xcassets */; };
 		FEB6E97D1F6F19E900B3ED74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB6E97B1F6F19E900B3ED74 /* LaunchScreen.storyboard */; };
 		FEB6E9851F6F1BCC00B3ED74 /* signUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB6E9841F6F1BCC00B3ED74 /* signUpVC.swift */; };
+		FEB6E9871F6F4A1A00B3ED74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEB6E9861F6F288100B3ED74 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB6E97D1F6F19E900B3ED74 /* LaunchScreen.storyboard in Resources */,
+				FEB6E9871F6F4A1A00B3ED74 /* GoogleService-Info.plist in Resources */,
 				FEB6E97A1F6F19E900B3ED74 /* Assets.xcassets in Resources */,
 				FEB6E9781F6F19E700B3ED74 /* Main.storyboard in Resources */,
 			);

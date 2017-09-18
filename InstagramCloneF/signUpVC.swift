@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class signUpVC: UIViewController {
 
@@ -27,9 +29,53 @@ class signUpVC: UIViewController {
     }
 
     @IBAction func signInPressed(_ sender: Any) {
+        
+        if emailTxtField.text != "" && passwordTxt.text != nil {
+            
+            FIRAuth.auth()?.signIn(withEmail: emailTxtField.text!, password: passwordTxt.text!, completion: { (user, error) in
+                if error != nil {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+                    alert.addAction(okButton)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.performSegue(withIdentifier: "toDoBar", sender: nil)
+                }
+            })
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Please Enter an Email and Password", preferredStyle: UIAlertControllerStyle.alert)
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func signUpPressed(_ sender: Any) {
+        
+        if emailTxtField.text != "" && passwordTxt.text != "" {
+            FIRAuth.auth()?.createUser(withEmail: emailTxtField.text!, password: passwordTxt.text!, completion: { (user, error) in
+                
+                if error != nil {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+                    alert.addAction(okButton)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.performSegue(withIdentifier: "toDoBar", sender: nil)
+                    
+                }
+                
+            })
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Please Enter Your Email and Password", preferredStyle: UIAlertControllerStyle.alert)
+            let okButton = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
+
+        
     }
     
     
