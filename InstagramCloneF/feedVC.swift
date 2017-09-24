@@ -7,19 +7,46 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class feedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+   
+    @IBAction func logoutPressed(_ sender: Any) {
+        
+        UserDefaults.standard.removeObject(forKey: "user")
+        UserDefaults.standard.synchronize()
+        
+        let signUp = self.storyboard?.instantiateViewController(withIdentifier: "signInVC") as! signUpVC
+        let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.window?.rootViewController = signUp
+        delegate.rememberLogin()
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
