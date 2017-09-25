@@ -8,36 +8,18 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
-        </array>
-    </customFonts>
     <scenes>
-        <!--FeedVC-->
+        <!--Feed-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="feedVC" customModule="InstagramCloneF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Feed" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="146.5" y="313" width="82.5" height="41.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" id="H4k-E4-ktr">
+                    <navigationItem key="navigationItem" title="Feed" id="H4k-E4-ktr">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="Ltu-PX-ni0">
                             <connections>
                                 <action selector="logoutPressed:" destination="9pv-A4-QxB" id="FsH-C0-9eF"/>
@@ -49,7 +31,7 @@
             </objects>
             <point key="canvasLocation" x="1540" y="-321"/>
         </scene>
-        <!--UploadVC-->
+        <!--Upload a Pic-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="uploadVC" customModule="InstagramCloneF" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,26 +39,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Upload" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="130.5" y="313" width="114.5" height="41.5"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select" translatesAutoresizingMaskIntoConstraints="NO" id="e2Y-Io-eu5">
+                                <rect key="frame" x="43" y="93" width="290" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="h0r-uW-d9P"/>
+                                    <constraint firstAttribute="height" constant="184" id="y3F-R8-7t8"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="62a-rg-IUe">
+                                <rect key="frame" x="43" y="285" width="290" height="63"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="sNl-61-hgB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6t-hh-RQx">
+                                <rect key="frame" x="287" y="356" width="46" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postBtnPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="lQs-4m-sKW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="z6t-hh-RQx" secondAttribute="bottom" constant="232" id="5ab-Ar-DOY"/>
+                            <constraint firstItem="62a-rg-IUe" firstAttribute="top" secondItem="e2Y-Io-eu5" secondAttribute="bottom" constant="8" symbolic="YES" id="HlW-Jn-tWp"/>
+                            <constraint firstItem="e2Y-Io-eu5" firstAttribute="leading" secondItem="62a-rg-IUe" secondAttribute="leading" id="Kyk-5A-eS0"/>
+                            <constraint firstItem="e2Y-Io-eu5" firstAttribute="trailing" secondItem="62a-rg-IUe" secondAttribute="trailing" id="Q5f-5b-jUw"/>
+                            <constraint firstItem="z6t-hh-RQx" firstAttribute="top" secondItem="62a-rg-IUe" secondAttribute="bottom" constant="8" symbolic="YES" id="WW4-q7-YvU"/>
+                            <constraint firstItem="e2Y-Io-eu5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="29" id="aGX-TE-rQh"/>
+                            <constraint firstItem="62a-rg-IUe" firstAttribute="trailing" secondItem="z6t-hh-RQx" secondAttribute="trailing" id="hzp-vA-tD0"/>
+                            <constraint firstItem="e2Y-Io-eu5" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="jHD-8n-85U"/>
+                            <constraint firstItem="e2Y-Io-eu5" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="43" id="rgi-iN-mye"/>
+                            <constraint firstItem="z6t-hh-RQx" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="287" id="xOm-ZA-yBT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="doi-7R-mfa"/>
+                    <navigationItem key="navigationItem" title="Upload a Pic" id="doi-7R-mfa"/>
+                    <connections>
+                        <outlet property="postComments" destination="62a-rg-IUe" id="saU-XO-v7L"/>
+                        <outlet property="postImage" destination="e2Y-Io-eu5" id="o2C-CF-cDs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540" y="359"/>
+            <point key="canvasLocation" x="1540" y="358.4707646176912"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="7NL-nz-1G8">
@@ -216,5 +226,6 @@
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="select" width="278" height="182"/>
     </resources>
 </document>
