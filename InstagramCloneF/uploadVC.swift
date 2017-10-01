@@ -50,7 +50,15 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 } else {
                     
                     let imageURL = metadata?.downloadURL()?.absoluteString
-                    print(imageURL)
+                    
+                    
+                    let post = ["image": imageURL!, "postedby": FIRAuth.auth()?.currentUser?.email, "uuid": self.uuid, "posttext" : self.postComments.text] as [String: Any]
+                    
+                    FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("post").childByAutoId().setValue(post)
+
+                    self.postImage.image = UIImage(named: "select.png")
+                    self.postComments.text = ""
+                    self.tabBarController?.selectedIndex = 0
                     
                 }
             })
