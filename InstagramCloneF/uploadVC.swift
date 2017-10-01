@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 
 class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -14,6 +18,7 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     @IBOutlet var postComments: UITextView!
     
+    var uuid = NSUUID().uuidString
     
     
     
@@ -32,6 +37,25 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     @IBAction func postBtnPressed(_ sender: Any) {
         
+        let mediaFolder = FIRStorage.storage().reference().child("media")
+        
+        if let data = UIImageJPEGRepresentation(postImage.image!, 0.5) {
+            
+            mediaFolder.child("\(uuid).jpg").put(data, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    let okBtn = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                    alert.addAction(okBtn)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    
+                    let imageURL = metadata?.downloadURL()?.absoluteString
+                    print(imageURL)
+                    
+                }
+            })
+            
+        }
     }
     
     
