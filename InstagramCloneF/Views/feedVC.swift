@@ -35,8 +35,22 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func getDataFromServer() {
         
         FIRDatabase.database().reference().child("users").observe(FIRDataEventType.childAdded) { (snapshot) in
-            print("snapshot value: \(snapshot.value)")
-            print("snapshot key: \(snapshot.key)")
+            
+            
+            let values = snapshot.value! as! NSDictionary
+            let post = values["post"] as! NSDictionary
+            
+            
+            let postIDs = post.allKeys
+            
+            for id in postIDs {
+                let singlePost = post[id] as! NSDictionary
+                self.userEmailArray.append(singlePost["postedby"] as! String)
+                self.postCommentArray.append(singlePost["posttext"] as! String)
+                self.postImageURLArray.append(singlePost["image"] as! String)
+                
+            }
+            self.tableView.reloadData()
         
         }
         
