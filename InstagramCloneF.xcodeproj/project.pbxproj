@@ -17,6 +17,7 @@
 		FEB6E97D1F6F19E900B3ED74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB6E97B1F6F19E900B3ED74 /* LaunchScreen.storyboard */; };
 		FEB6E9851F6F1BCC00B3ED74 /* signUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB6E9841F6F1BCC00B3ED74 /* signUpVC.swift */; };
 		FEB6E9871F6F4A1A00B3ED74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEB6E9861F6F288100B3ED74 /* GoogleService-Info.plist */; };
+		FEDAD5641F8AE9280064014B /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEDAD5631F8AE9280064014B /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FEB6E97E1F6F19E900B3ED74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEB6E9841F6F1BCC00B3ED74 /* signUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpVC.swift; sourceTree = "<group>"; };
 		FEB6E9861F6F288100B3ED74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FEDAD5631F8AE9280064014B /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage/SDWebImage.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEDAD5641F8AE9280064014B /* SDWebImage.framework in Frameworks */,
 				31B24EAB7009ADC465D2583B /* Pods_InstagramCloneF.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +63,7 @@
 		712B60F2D024FB3A7719BC90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEDAD5631F8AE9280064014B /* SDWebImage.framework */,
 				92730CC3AB044C4AC934FDF9 /* Pods_InstagramCloneF.framework */,
 			);
 			name = Frameworks;
@@ -374,6 +378,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4LBT7283WA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+				);
 				INFOPLIST_FILE = InstagramCloneF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simple.InstagramCloneF;
@@ -389,6 +397,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4LBT7283WA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SDWebImage",
+				);
 				INFOPLIST_FILE = InstagramCloneF/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simple.InstagramCloneF;

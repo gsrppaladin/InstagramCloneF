@@ -64,6 +64,7 @@ class uploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             })
             
         }
+        
     }
     
     

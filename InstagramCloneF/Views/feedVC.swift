@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import SDWebImage
 
 class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -28,14 +29,27 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
+
         
+        
+    }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         getDataFromServer()
     }
+    
+
+    
 
     func getDataFromServer() {
-        
+  
         FIRDatabase.database().reference().child("users").observe(FIRDataEventType.childAdded) { (snapshot) in
             
+            self.userEmailArray.removeAll()
+            self.postCommentArray.removeAll()
+            self.postImageURLArray.removeAll()
             
             let values = snapshot.value! as! NSDictionary
             let post = values["post"] as! NSDictionary
@@ -44,13 +58,18 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let postIDs = post.allKeys
             
             for id in postIDs {
+
                 let singlePost = post[id] as! NSDictionary
+
                 self.userEmailArray.append(singlePost["postedby"] as! String)
+                
                 self.postCommentArray.append(singlePost["posttext"] as! String)
+               
                 self.postImageURLArray.append(singlePost["image"] as! String)
                 
             }
-            self.tableView.reloadData()
+
+          self.tableView.reloadData()
         
         }
         
@@ -68,6 +87,7 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.postText.text = postCommentArray[indexPath.row]
         cell.usernameLbl.text = userEmailArray[indexPath.row]
+        cell.postImage.sd_setImage(with: URL(string: self.postImageURLArray[indexPath.row]))
         
         return cell
     }
@@ -84,25 +104,6 @@ class feedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         delegate.window?.rootViewController = signUp
         delegate.rememberLogin()
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
